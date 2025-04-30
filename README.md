@@ -84,7 +84,7 @@ The **merge** function synchronizes updates between two systems. It compares the
 
    ```bash
    git clone https://github.com/Tah1rTheT1ger/DataTripleStore.git
-   cd database-synchronization
+   cd DataTripleStore
 
 ## Contributors
 
