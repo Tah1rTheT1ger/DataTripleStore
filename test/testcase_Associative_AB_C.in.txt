@@ -1,0 +1,8 @@
+MONGO . SET (( SID1033 , CSE016 ) , C )      
+HIVE . SET (( SID1033 , CSE016 ) , B )        
+SQL . SET (( SID1033 , CSE016 ) , A )        
+
+MONGO . MERGE ( MONGO )
+MONGO . MERGE ( HIVE )
+MONGO . MERGE ( SQL )
+MONGO . GET ( SID1033 , CSE016 )            
