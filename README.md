@@ -1,4 +1,4 @@
-# Database Synchronization Project
+# Data Triple Store Project
 
 This project demonstrates data integration and synchronization across heterogeneous database systems, specifically focusing on Hive, PostgreSQL, and MongoDB. It manages student course grades with the same dataset stored across these systems and ensures consistency via CRUD operations and merge functionality. The system leverages operation logs (oplogs) to maintain eventual consistency across all platforms.
 
@@ -19,20 +19,21 @@ The operation logs track **GET** and **SET** operations, and the **merge** funct
 1. **Hive**
    - **Create:** `CREATE TABLE`
    - **Read:** `SELECT Grade FROM table WHERE student_ID='...' AND course_ID='...'`
-   - **Update:** `UPDATE` (with ACID support enabled)
-   - **Delete:** Limited support
+   - **Update:** `INSERT OVERWRITE TABLE`
+   - **Delete:** `DROP TABLE`
 
 2. **PostgreSQL**
-   - **Create:** `INSERT`
+   - **Create:** `CREATE`
    - **Read:** `SELECT Grade FROM table WHERE student_ID='...' AND course_ID='...`
    - **Update:** `UPDATE table SET Grade='...' WHERE student_ID='...' AND course_ID='...`
    - **Delete:** `DELETE`
 
 3. **MongoDB**
-   - **Create:** `insertOne`, `insertMany`
+   - **Create:** `createCollection`, `insertOne`, `insertMany`
    - **Read:** `findOne({ student_ID, course_ID }, { Grade })`
    - **Update:** `updateOne({ student_ID, course_ID }, { $set: { Grade } })`
    - **Delete:** `deleteOne`
+
 
 ## Features
 
