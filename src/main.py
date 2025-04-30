@@ -1,6 +1,7 @@
 from hive_manager import HiveGradeManager
 from postgres_manager import SQLGradeManager
 from mongo_manager import MongoDBGradeManager
+import time
 
 # Initialize managers
 hive_mgr = HiveGradeManager('student_course_grades.csv')
@@ -15,7 +16,7 @@ manager_map = {
 }
 
 # Open and read the input file
-with open('testcase.in', 'r') as f:
+with open('testcase_hive.in', 'r') as f:
     lines = f.readlines()
 
 for line in lines:
@@ -27,6 +28,8 @@ for line in lines:
         system, rest = line.split('.', 1)
         system = system.strip().upper()
         rest = rest.strip()
+        time.sleep(1)
+
 
         if rest.startswith("SET"):
             # Format: SET (( SID103 , CSE016 ) , A )
